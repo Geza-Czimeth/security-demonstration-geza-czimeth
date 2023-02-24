@@ -13,4 +13,9 @@ public class OrderController {
     public ResponseEntity<String> load(){
         return ResponseEntity.ok("TestOrder");
     }
+
+    @GetMapping("/nonAuthenticated/orders")
+    public ResponseEntity<String> loadWithoutAuthentication(){
+        return ResponseEntity.ok("TestOrder");
+    }
 }
