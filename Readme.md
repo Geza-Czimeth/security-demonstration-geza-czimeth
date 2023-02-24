@@ -34,6 +34,7 @@ https://bcrypt-generator.com/
   - [database script]()
 
 - [AuthoritiesLoggingAfterFilter]() plugged in to log the authenticated user
+- [Method level security]() check have been plugged in
 
 
 
