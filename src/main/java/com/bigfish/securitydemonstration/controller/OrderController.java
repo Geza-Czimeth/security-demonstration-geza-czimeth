@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1")
 public class OrderController {
 
-    @GetMapping("/orders")
+    @GetMapping("/users")
     public ResponseEntity<String> load(){
         return ResponseEntity.ok("TestOrder");
     }
 
-    @GetMapping("/nonAuthenticated/orders")
+    @GetMapping("/nonAuthenticated/users")
     public ResponseEntity<String> loadWithoutAuthentication(){
         return ResponseEntity.ok("TestOrder");
     }
