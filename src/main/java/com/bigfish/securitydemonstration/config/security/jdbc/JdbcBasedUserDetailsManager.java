@@ -1,29 +1,18 @@
-package com.bigfish.securitydemonstration.config;
+package com.bigfish.securitydemonstration.config.security.jdbc;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
-import org.springframework.security.web.SecurityFilterChain;
 
 import javax.sql.DataSource;
 
 @Configuration
-@Profile("prod")
-public class ProjectSecurityConfig {
-
-    @Bean
-    SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
-        http.authorizeRequests().requestMatchers("/api/v1/users").authenticated().requestMatchers("/api/v1/nonAuthenticated/users").permitAll()
-                .requestMatchers("/**").denyAll();
-        http.formLogin();
-        http.httpBasic();
-        return http.build();
-    }
+@Profile("prod-default-userdetailsservice")
+public class JdbcBasedUserDetailsManager {
 
     @Bean
     public UserDetailsService userDetailsServiceDatabase(DataSource dataSource) {
@@ -32,6 +21,7 @@ public class ProjectSecurityConfig {
 
     @Bean
     public PasswordEncoder noOpPasswordEncoder() {
+        // Intentionally plain text, improved in final profile
         return NoOpPasswordEncoder.getInstance();
     }
 }

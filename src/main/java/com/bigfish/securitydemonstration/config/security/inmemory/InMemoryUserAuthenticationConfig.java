@@ -1,4 +1,4 @@
-package com.bigfish.securitydemonstration.config;
+package com.bigfish.securitydemonstration.config.security.inmemory;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
