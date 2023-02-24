@@ -5,7 +5,8 @@ This project created by Geza Czimeth to demonstrate Spring Security usage.
 
 #### Available spring profiles
 
-- dev
+- dev-simple-security --> simpliest spring security, username/password loaded from 'simple-security.properties' file
+- dev --> InMemoryUserAuthenticationConfig used for web security
 - prod-default-userdetailsservice
 - prod-custom-userdetailsservice
 
