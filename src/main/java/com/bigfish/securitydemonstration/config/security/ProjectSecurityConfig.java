@@ -1,11 +1,13 @@
 package com.bigfish.securitydemonstration.config.security;
 
+import com.bigfish.securitydemonstration.filter.AuthoritiesLoggingAfterFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
 import static org.springframework.http.HttpMethod.POST;
 
@@ -22,6 +24,7 @@ public class ProjectSecurityConfig {
                 // Unauthenticated post request setup, not for production usage!
                 .requestMatchers(POST, "/api/v1/register").permitAll()
                 .requestMatchers("/**").denyAll();
+        http.addFilterAfter(new AuthoritiesLoggingAfterFilter(), BasicAuthenticationFilter.class);
         http.formLogin();
         http.httpBasic();
         // For the post request to work(registering users in this case, this must be added otherwise we get error

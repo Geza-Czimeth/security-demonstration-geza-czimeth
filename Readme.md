@@ -33,6 +33,8 @@ https://bcrypt-generator.com/
   - [configuration of database]()
   - [database script]()
 
+- [AuthoritiesLoggingAfterFilter]() plugged in to log the authenticated user
+
 
 
 ### Mysql Db setup
