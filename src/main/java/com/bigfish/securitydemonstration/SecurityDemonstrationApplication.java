@@ -1,4 +1,4 @@
-package com.bigfish.securitydemonstrationgezaczimeth;
+package com.bigfish.securitydemonstration;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
