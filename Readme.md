@@ -33,6 +33,8 @@ https://bcrypt-generator.com/
   - [configuration of database]()
   - [database script]()
 
+
+
 ### Mysql Db setup
 
 <pre>
@@ -49,3 +51,7 @@ and run the content of the
 sql/*.script
 </pre>
 to create the necessary structure.
+
+### TODO
+
+- add sequence diagrams for the message flows

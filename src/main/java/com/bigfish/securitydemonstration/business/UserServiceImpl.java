@@ -4,10 +4,12 @@ import com.bigfish.securitydemonstration.model.Customer;
 import com.bigfish.securitydemonstration.repository.CustomerRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
+@Profile("prod-custom-userdetailsservice")
 @Slf4j
 public class UserServiceImpl implements UserService {
 
