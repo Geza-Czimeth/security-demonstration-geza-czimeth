@@ -8,7 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @Profile("prod-custom-userdetailsservice")
-public class CustomJdbcBasedUserDetailsManager {
+public class CustomSecurityConfig {
     @Bean
     public PasswordEncoder noOpPasswordEncoder() {
         return NoOpPasswordEncoder.getInstance();
