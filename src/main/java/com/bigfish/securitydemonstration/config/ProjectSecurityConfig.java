@@ -2,13 +2,18 @@ package com.bigfish.securitydemonstration.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
+import javax.sql.DataSource;
+
 @Configuration
+@Profile("prod")
 public class ProjectSecurityConfig {
 
     @Bean
@@ -16,14 +21,16 @@ public class ProjectSecurityConfig {
         http.authorizeRequests().requestMatchers("/api/v1/orders").authenticated().requestMatchers("/api/v1/nonAuthenticated/orders").permitAll();
         http.formLogin();
         http.httpBasic();
-
         return http.build();
     }
 
     @Bean
-    public InMemoryUserDetailsManager userDetailsService() {
-        UserDetails admin = User.withDefaultPasswordEncoder().username("admin").password("admin").roles("admin").build();
-        UserDetails user1 = User.withDefaultPasswordEncoder().username("user1").password("user1").roles("user1").build();
-        return new InMemoryUserDetailsManager(admin, user1);
+    public UserDetailsService userDetailsServiceDatabase(DataSource dataSource) {
+        return new JdbcUserDetailsManager(dataSource);
+    }
+
+    @Bean
+    public PasswordEncoder noOpPasswordEncoder() {
+        return NoOpPasswordEncoder.getInstance();
     }
 }
