@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "Prod profile testing",
+			"name": "prod-default-userdetailsservice",
 			"item": [
 				{
 					"name": "Load orders",
@@ -70,6 +70,76 @@
 			]
 		},
 		{
+			"name": "prod-custom-userdetailsservice",
+			"item": [
+				{
+					"name": "Create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"abmyxMaail@test.com\",\r\n    \"pwd\": \"secret\",\r\n    \"role\": \"user\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Load orders",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "secret",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "abmyxMaail@test.com",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Dev profile testing",
 			"item": [
 				{
@@ -86,6 +156,47 @@
 								{
 									"key": "username",
 									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "dev-simple-security",
+			"item": [
+				{
+					"name": "Load users",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "user",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user",
 									"type": "string"
 								}
 							]

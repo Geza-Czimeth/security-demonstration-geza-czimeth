@@ -7,10 +7,13 @@ This project created by Geza Czimeth to demonstrate Spring Security usage.
 
 - dev-simple-security --> simpliest spring security, username/password loaded from 'simple-security.properties' file
 - dev --> InMemoryUserAuthenticationConfig used for web security
-- prod-default-userdetailsservice
+- prod-default-userdetailsservice --> johndoe@example.com/54321
 - prod-custom-userdetailsservice
 
 you can set the profile with the 'spring.profiles.active' property
+
+### Useful links
+https://bcrypt-generator.com/
 
 ### What is being demonstrated
 
@@ -30,6 +33,8 @@ you can set the profile with the 'spring.profiles.active' property
   - [configuration of database]()
   - [database script]()
 
+
+
 ### Mysql Db setup
 
 <pre>
@@ -46,3 +51,7 @@ and run the content of the
 sql/*.script
 </pre>
 to create the necessary structure.
+
+### TODO
+
+- add sequence diagrams for the message flows
