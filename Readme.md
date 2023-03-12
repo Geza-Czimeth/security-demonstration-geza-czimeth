@@ -1,6 +1,7 @@
 ## Introduction
 
 This project created by Geza Czimeth to demonstrate Spring Security usage.
+In the application several spring profile is available. Each profile demonstrates a different spring security configuration.
 
 #### Available spring profiles
 
@@ -12,14 +13,14 @@ This project created by Geza Czimeth to demonstrate Spring Security usage.
   - username/password: admin/admin
 - test
   - for testing purposes 
-  - uses [NoOpPasswordEncoder](https://github.com/Geza-Czimeth/security-demonstration-geza-czimeth/blob/a652b225a0f11805442647180878c517ffc6383c/src/main/java/com/bigfish/securitydemonstration/config/security/jdbc/JdbcBasedUserDetailsManager.java) so testing is easier
+  - uses [NoOpPasswordEncoder](https://github.com/Geza-Czimeth/security-demonstration-geza-czimeth/blob/a652b225a0f11805442647180878c517ffc6383c/src/main/java/com/bigfish/securitydemonstration/config/security/jdbc/JdbcBasedUserDetailsManager.java#L25) so testing is easier
   - stores authentication data in 'user' table
   - username/password: userdb/userdb 
 - prod
-  - customized [UserDetailsService](https://github.com/Geza-Czimeth/security-demonstration-geza-czimeth/blob/4a7a0d6ed8357a0c70244ac941db58678f20b514/src/main/java/com/bigfish/securitydemonstration/config/security/custom/CustomUserDetailsService.java), user credentials are loaded up from custom table(customer)
+  - customized [UserDetailsService](https://github.com/Geza-Czimeth/security-demonstration-geza-czimeth/blob/4a7a0d6ed8357a0c70244ac941db58678f20b514/src/main/java/com/bigfish/securitydemonstration/config/security/custom/CustomUserDetailsService.java#L22), user credentials are loaded up from custom table(customer)
   - for production environment
   - username/password: johndoe@example.com/54321(use postman file to submit the request)
-  - uses [BCryptPasswordEncoder](https://github.com/Geza-Czimeth/security-demonstration-geza-czimeth/blob/4a7a0d6ed8357a0c70244ac941db58678f20b514/src/main/java/com/bigfish/securitydemonstration/config/security/custom/CustomSecurityConfig.java)
+  - uses [BCryptPasswordEncoder](https://github.com/Geza-Czimeth/security-demonstration-geza-czimeth/blob/4a7a0d6ed8357a0c70244ac941db58678f20b514/src/main/java/com/bigfish/securitydemonstration/config/security/custom/CustomSecurityConfig.java#L16)
   - uses JDBC to store/load users
 
 you can set the profile with the 'spring.profiles.active' property
@@ -62,7 +63,9 @@ to create the necessary structure.
 - [Method level security](https://github.com/Geza-Czimeth/security-demonstration-geza-czimeth/blob/29659021a145a18d9a1eedb60c8851c4146cd4be/src/main/java/com/bigfish/securitydemonstration/controller/UserControllerWithAuthorityCheck.java#L19) check have been plugged in
 
 
-### Postman test
+### Postman tests
+
+File available at [/assets/postman/Spring Security Demonstration Geza Czimeth.postman_collection.json](/assets/postman/Spring Security Demonstration Geza Czimeth.postman_collection.json)<br/><br/>
 ![Postman tests](/assets/images/postman-test.png)
 
 Each test directory related to a spring profile, so they only work if you are using that profile.
