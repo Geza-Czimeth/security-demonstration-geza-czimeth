@@ -16,9 +16,9 @@ This project created by Geza Czimeth to demonstrate Spring Security usage.
   - stores authentication data in 'user' table
   - username/password: userdb/userdb 
 - prod-custom-userdetailsservice
-  - for productions environment
-  - customized user loading from 'customer' table
-  - username/password: johndoe@example.com/secret....johndoe@example.com/54321
+  - customized [UserDetailsService](), user credentials are loaded up from custom table(customer)
+  - for production environment
+  - username/password: johndoe@example.com/54321(use postman file to submit the request)
   - uses [BCryptPasswordEncoder]()
   - uses JDBC to store/load users
 

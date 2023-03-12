@@ -2,6 +2,7 @@ create database spring_security;
 
 use spring_security;
 
+
 CREATE TABLE `users` (
                          `id` INT NOT NULL AUTO_INCREMENT,
                          `username` VARCHAR(45) NOT NULL,
@@ -22,7 +23,7 @@ CREATE TABLE `customer` (
                             `id` int NOT NULL AUTO_INCREMENT,
                             `email` varchar(45) NOT NULL,
                             `pwd` varchar(200) NOT NULL,
-                            `role` varchar(45) NOT NULL,
+                            `authority` varchar(45) NOT NULL,
                             PRIMARY KEY (`id`)
 );
 
