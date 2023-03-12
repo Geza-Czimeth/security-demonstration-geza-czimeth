@@ -11,7 +11,7 @@ import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import javax.sql.DataSource;
 
 @Configuration
-@Profile("prod-default-userdetailsservice")
+@Profile("test")
 public class JdbcBasedUserDetailsManager {
 
     @Bean
