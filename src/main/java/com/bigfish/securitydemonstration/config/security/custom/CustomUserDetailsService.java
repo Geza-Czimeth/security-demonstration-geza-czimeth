@@ -39,7 +39,7 @@ public class CustomUserDetailsService implements UserDetailsService {
             userName = customer.getEmail();
             password = customer.getPwd();
             grantedAuthorities = new ArrayList<>();
-            grantedAuthorities.add(new SimpleGrantedAuthority(customer.getRole()));
+            grantedAuthorities.add(new SimpleGrantedAuthority(customer.getAuthority()));
         }
         return new User(userName, password, grantedAuthorities);
     }

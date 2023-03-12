@@ -26,5 +26,8 @@ CREATE TABLE `customer` (
                             PRIMARY KEY (`id`)
 );
 
-INSERT INTO `customer` (`email`, `pwd`, `role`)
-VALUES ('johndoe@example.com', '$2a$12$iPdOsL9S/bgMKUasRMRjX.t8Sn7Q1ZrPrz/PwV0vExvBoa/0MLKXi', 'admin');
+INSERT INTO `customer` (`email`, `pwd`, `authority`)
+VALUES ('johndoe@example.com', '$2a$12$iPdOsL9S/bgMKUasRMRjX.t8Sn7Q1ZrPrz/PwV0vExvBoa/0MLKXi', 'view');
+
+INSERT INTO `customer` (`email`, `pwd`, `authority`)
+VALUES ('produer@example.com', '$2a$10$Qyw2hI1l5nEn0drq7ByYFOgwOHz0YwZ3FdNEqV2XtT63Mhl7pHo0e', 'user');

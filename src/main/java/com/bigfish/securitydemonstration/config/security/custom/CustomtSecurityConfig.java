@@ -18,7 +18,7 @@ public class CustomtSecurityConfig {
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .requestMatchers("/api/v1/users","/api/v2/users").hasAuthority("user")
+                .requestMatchers("/api/v1/users","/api/v2/users").hasAuthority("view")
                 .requestMatchers("/api/v1/nonAuthenticated/users").permitAll()
                 // Unauthenticated post request setup, not for production usage!
                 .requestMatchers(POST, "/api/v1/register").permitAll()
