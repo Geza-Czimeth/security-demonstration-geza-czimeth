@@ -65,7 +65,7 @@ to create the necessary structure.
 
 ### Postman tests
 
-File available at [/assets/postman/Spring Security Demonstration Geza Czimeth.postman_collection.json](/assets/postman/Spring Security Demonstration Geza Czimeth.postman_collection.json)<br/><br/>
+File available at '/assets/postman/Spring Security Demonstration Geza Czimeth.postman_collection.json' <br/><br/>
 ![Postman tests](/assets/images/postman-test.png)
 
 Each test directory related to a spring profile, so they only work if you are using that profile.
