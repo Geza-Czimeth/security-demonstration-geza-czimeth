@@ -96,5 +96,11 @@ In detail
 Integration tests: Postman file is provided to test the various spring configurations</br>
 Unit tests: There are no business logic in the application only spring security configuration, so unit tests are omitted
 
+### Build and run
+<pre>
+mvn clean install
+java -Dspring.profiles.active=__INSERT_PROFILE_HERE__ -jar target/security-demonstration-geza-czimeth-0.0.1-SNAPSHOT.jar
+</pre>
+
 ### Useful links
 https://bcrypt-generator.com/
