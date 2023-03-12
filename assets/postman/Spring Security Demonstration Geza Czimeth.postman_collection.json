@@ -7,10 +7,92 @@
 	},
 	"item": [
 		{
-			"name": "prod-default-userdetailsservice",
+			"name": "1. dev-simple-security",
 			"item": [
 				{
-					"name": "Load orders",
+					"name": "1.1. Load users",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "user",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "2. dev",
+			"item": [
+				{
+					"name": "2.1. Load users",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "3. test",
+			"item": [
+				{
+					"name": "3.1 Load users",
 					"request": {
 						"auth": {
 							"type": "basic",
@@ -46,7 +128,7 @@
 					"response": []
 				},
 				{
-					"name": "Load orders, request is not authenticated",
+					"name": "3.2 Load users, request is not authenticated",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -70,16 +152,16 @@
 			]
 		},
 		{
-			"name": "prod-custom-userdetailsservice",
+			"name": "4. prod",
 			"item": [
 				{
-					"name": "Create user",
+					"name": "4.1 Create user",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"abmyxMaail@test.com\",\r\n    \"pwd\": \"secret\",\r\n    \"role\": \"user\"\r\n}",
+							"raw": "{\r\n    \"email\": \"produser2@mail.com\",\r\n    \"pwd\": \"secret\",\r\n    \"authority\": \"user\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -102,55 +184,19 @@
 					"response": []
 				},
 				{
-					"name": "Load users",
+					"name": "4.2 Load users with view authority",
 					"request": {
 						"auth": {
 							"type": "basic",
 							"basic": [
 								{
 									"key": "password",
-									"value": "secret",
+									"value": "54321",
 									"type": "string"
 								},
 								{
 									"key": "username",
-									"value": "abmyxMaail@test.com",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/api/v1/users",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"users"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Load users with USER Authority check",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "secret",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "abmyxMaail@test.com",
+									"value": "johndoe@example.com",
 									"type": "string"
 								}
 							]
@@ -172,26 +218,21 @@
 						}
 					},
 					"response": []
-				}
-			]
-		},
-		{
-			"name": "Dev profile testing",
-			"item": [
+				},
 				{
-					"name": "Load users",
+					"name": "4.3 Load users with USER Authority --> should fail",
 					"request": {
 						"auth": {
 							"type": "basic",
 							"basic": [
 								{
-									"key": "password",
-									"value": "admin",
+									"key": "username",
+									"value": "produer@example.com",
 									"type": "string"
 								},
 								{
-									"key": "username",
-									"value": "admin",
+									"key": "password",
+									"value": "secret",
 									"type": "string"
 								}
 							]
@@ -199,7 +240,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/v1/users",
+							"raw": "http://localhost:8080/api/v2/users",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -207,48 +248,7 @@
 							"port": "8080",
 							"path": [
 								"api",
-								"v1",
-								"users"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "dev-simple-security",
-			"item": [
-				{
-					"name": "Load users",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "user",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "user",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/api/v1/users",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
+								"v2",
 								"users"
 							]
 						}

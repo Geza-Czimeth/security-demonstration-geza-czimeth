@@ -23,5 +23,5 @@ public class Customer {
     private Long id;
     private String email;
     private String pwd;
-    private String role;
+    private String authority;
 }

@@ -13,21 +13,19 @@ import static org.springframework.http.HttpMethod.POST;
 
 @Configuration
 @Profile("prod-custom-userdetailsservice")
-public class CustomtSecurityConfig {
+public class CustomtSecurityFilterChainConfig {
 
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .requestMatchers("/api/v1/users","/api/v2/users").hasAuthority("user")
+                .requestMatchers("/api/v1/users","/api/v2/users").hasAuthority("view")
                 .requestMatchers("/api/v1/nonAuthenticated/users").permitAll()
-                // Unauthenticated post request setup, not for production usage!
+                // Unauthenticated post request setup, for demonstration purpose only
                 .requestMatchers(POST, "/api/v1/register").permitAll()
                 .requestMatchers("/**").denyAll();
         http.addFilterAfter(new AuthoritiesLoggingAfterFilter(), BasicAuthenticationFilter.class);
         http.formLogin();
         http.httpBasic();
-        // For the post request to work(registering users in this case, this must be added otherwise we get error
-        // message 'Invalid CSRF token found for http://localhost:8080/api/v1/register'
         http.csrf().disable();
         return http.build();
     }

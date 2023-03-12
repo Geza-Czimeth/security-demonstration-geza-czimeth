@@ -11,7 +11,7 @@ import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import javax.sql.DataSource;
 
 @Configuration
-@Profile("prod-default-userdetailsservice")
+@Profile("test")
 public class JdbcBasedUserDetailsManager {
 
     @Bean
@@ -21,7 +21,7 @@ public class JdbcBasedUserDetailsManager {
 
     @Bean
     public PasswordEncoder noOpPasswordEncoder() {
-        // Intentionally plain text, improved in final profile
+        // Intentionally plain text for testing purposes
         return NoOpPasswordEncoder.getInstance();
     }
 }
