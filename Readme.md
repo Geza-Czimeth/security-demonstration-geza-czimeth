@@ -90,7 +90,7 @@ In detail
 
 ### Testing
 
-Integration tests: Postman file is provided to test the various spring configurations
+Integration tests: Postman file is provided to test the various spring configurations</br>
 Unit tests: There are no business logic in the application only spring security configuration, so unit tests are omitted
 
 ### Useful links
