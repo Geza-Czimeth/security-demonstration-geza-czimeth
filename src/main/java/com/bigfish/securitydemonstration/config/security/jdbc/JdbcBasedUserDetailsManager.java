@@ -21,7 +21,7 @@ public class JdbcBasedUserDetailsManager {
 
     @Bean
     public PasswordEncoder noOpPasswordEncoder() {
-        // Intentionally plain text, improved in final profile
+        // Intentionally plain text for testing purposes
         return NoOpPasswordEncoder.getInstance();
     }
 }

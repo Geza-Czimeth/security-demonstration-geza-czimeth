@@ -13,7 +13,7 @@ import static com.bigfish.securitydemonstration.model.Constants.TEST_CUSTOMER;
 @RestController
 @RequestMapping("/api/v2")
 @Profile("prod-custom-userdetailsservice")
-public class UserControllerWithRoleCheck {
+public class UserControllerWithAuthorityCheck {
 
     @GetMapping("/users")
     @PreAuthorize("hasAuthority('user')")
