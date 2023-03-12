@@ -85,6 +85,7 @@ In detail
 4.2. Loads users if the requestor has 'view' authority<br/>
 
 ![Sequence diagram for 4,2](/assets/images/sequence-4.2.png)
+
 4.3. Demonstrates that authenticated user can not load the users if has no 'view' authority<br/>
 
 ### Testing
