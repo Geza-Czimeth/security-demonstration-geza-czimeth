@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/v1")
 @AllArgsConstructor
-@Profile("prod-custom-userdetailsservice")
+@Profile("prod")
 public class LoginController {
 
     private UserService userService;

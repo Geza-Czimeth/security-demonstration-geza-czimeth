@@ -9,7 +9,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
-@Profile("prod-custom-userdetailsservice")
+@Profile("prod")
 @Slf4j
 public class UserServiceImpl implements UserService {
 

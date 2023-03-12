@@ -12,7 +12,7 @@ import static org.springframework.http.HttpMethod.POST;
 
 
 @Configuration
-@Profile("prod-custom-userdetailsservice")
+@Profile("prod")
 public class CustomtSecurityFilterChainConfig {
 
     @Bean
