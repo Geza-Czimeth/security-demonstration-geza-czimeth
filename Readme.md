@@ -59,7 +59,7 @@ to create the necessary structure.
   - [database script](https://github.com/Geza-Czimeth/security-demonstration-geza-czimeth/blob/4a7a0d6ed8357a0c70244ac941db58678f20b514/assets/sql/secruity_scheme.sql)
 
 - [AuthoritiesLoggingAfterFilter](https://github.com/Geza-Czimeth/security-demonstration-geza-czimeth/blob/4a7a0d6ed8357a0c70244ac941db58678f20b514/src/main/java/com/bigfish/securitydemonstration/config/security/ProjectSecurityConfig.java#L27) plugged in to log the authenticated user
-- [Method level security]() check have been plugged in
+- [Method level security](https://github.com/Geza-Czimeth/security-demonstration-geza-czimeth/blob/c1b023856e07f822c8ab097d8560faec09d97d8f/src/main/java/com/bigfish/securitydemonstration/controller/UserControllerWithAuthorityCheck.java#L20) check have been plugged in
 
 
 ### Postman test
