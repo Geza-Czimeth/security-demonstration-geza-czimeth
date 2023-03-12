@@ -18,7 +18,7 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-@Profile("prod-custom-userdetailsservice")
+@Profile("prod")
 public class CustomUserDetailsService implements UserDetailsService {
 
     @Autowired

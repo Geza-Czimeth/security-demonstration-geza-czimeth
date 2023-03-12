@@ -15,7 +15,7 @@ This project created by Geza Czimeth to demonstrate Spring Security usage.
   - uses [NoOpPasswordEncoder](https://github.com/Geza-Czimeth/security-demonstration-geza-czimeth/blob/a652b225a0f11805442647180878c517ffc6383c/src/main/java/com/bigfish/securitydemonstration/config/security/jdbc/JdbcBasedUserDetailsManager.java) so testing is easier
   - stores authentication data in 'user' table
   - username/password: userdb/userdb 
-- prod-custom-userdetailsservice
+- prod
   - customized [UserDetailsService](https://github.com/Geza-Czimeth/security-demonstration-geza-czimeth/blob/4a7a0d6ed8357a0c70244ac941db58678f20b514/src/main/java/com/bigfish/securitydemonstration/config/security/custom/CustomUserDetailsService.java), user credentials are loaded up from custom table(customer)
   - for production environment
   - username/password: johndoe@example.com/54321(use postman file to submit the request)
@@ -59,7 +59,7 @@ to create the necessary structure.
   - [database script](https://github.com/Geza-Czimeth/security-demonstration-geza-czimeth/blob/4a7a0d6ed8357a0c70244ac941db58678f20b514/assets/sql/secruity_scheme.sql)
 
 - [AuthoritiesLoggingAfterFilter](https://github.com/Geza-Czimeth/security-demonstration-geza-czimeth/blob/4a7a0d6ed8357a0c70244ac941db58678f20b514/src/main/java/com/bigfish/securitydemonstration/config/security/ProjectSecurityConfig.java#L27) plugged in to log the authenticated user
-- [Method level security]() check have been plugged in
+- [Method level security](https://github.com/Geza-Czimeth/security-demonstration-geza-czimeth/blob/c1b023856e07f822c8ab097d8560faec09d97d8f/src/main/java/com/bigfish/securitydemonstration/controller/UserControllerWithAuthorityCheck.java#L20) check have been plugged in
 
 
 ### Postman test
