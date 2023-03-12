@@ -13,7 +13,7 @@ import static org.springframework.http.HttpMethod.POST;
 
 @Configuration
 @Profile("prod-custom-userdetailsservice")
-public class CustomtSecurityConfig {
+public class CustomtSecurityFilterChainConfig {
 
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
