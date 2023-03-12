@@ -44,7 +44,7 @@ to create the necessary structure.
 
 ### What is being demonstrated
 
-- [Non authenticated endpoint security configuration](https://github.com/Geza-Czimeth/security-demonstration-geza-czimeth/blob/4a7a0d6ed8357a0c70244ac941db58678f20b514/src/main/java/com/bigfish/securitydemonstration/config/security/custom/CustomtSecurityConfig.java)
+- [Non authenticated endpoint security configuration](https://github.com/Geza-Czimeth/security-demonstration-geza-czimeth/blob/4a7a0d6ed8357a0c70244ac941db58678f20b514/src/main/java/com/bigfish/securitydemonstration/config/security/custom/CustomtSecurityConfig.java#L22)
 - Authenticated endpoint security configuration:
   - [The endpoint](https://github.com/Geza-Czimeth/security-demonstration-geza-czimeth/blob/4a7a0d6ed8357a0c70244ac941db58678f20b514/src/main/java/com/bigfish/securitydemonstration/controller/UserController.java#L16)     
   - [SpringConfig](https://github.com/Geza-Czimeth/security-demonstration-geza-czimeth/blob/4a7a0d6ed8357a0c70244ac941db58678f20b514/src/main/java/com/bigfish/securitydemonstration/config/security/ProjectSecurityConfig.java#L22)
@@ -58,13 +58,34 @@ to create the necessary structure.
   - [configuration of database](https://github.com/Geza-Czimeth/security-demonstration-geza-czimeth/blob/a652b225a0f11805442647180878c517ffc6383c/src/main/resources/application.properties#L9)
   - [database script](https://github.com/Geza-Czimeth/security-demonstration-geza-czimeth/blob/4a7a0d6ed8357a0c70244ac941db58678f20b514/assets/sql/secruity_scheme.sql)
 
-- [AuthoritiesLoggingAfterFilter](https://github.com/Geza-Czimeth/security-demonstration-geza-czimeth/blob/4a7a0d6ed8357a0c70244ac941db58678f20b514/src/main/java/com/bigfish/securitydemonstration/filter/AuthoritiesLoggingAfterFilter.java#L11) plugged in to log the authenticated user
+- [AuthoritiesLoggingAfterFilter](https://github.com/Geza-Czimeth/security-demonstration-geza-czimeth/blob/4a7a0d6ed8357a0c70244ac941db58678f20b514/src/main/java/com/bigfish/securitydemonstration/config/security/ProjectSecurityConfig.java#L27) plugged in to log the authenticated user
 - [Method level security]() check have been plugged in
 
 
-### TODO
+### Postman test
+![Postman tests](/assets/images/postman-test.png)
 
-- add sequence diagrams for the message flows
+Each test directory related to a spring profile, so they only work if you are using that profile.
+In detail
+<br/>
+
+1.1 Loads the users from in memory after authentication is successful<br/>
+    - for authentication the user credentials are loaded up from property file [simple-security.properties](https://github.com/Geza-Czimeth/security-demonstration-geza-czimeth/blob/4a7a0d6ed8357a0c70244ac941db58678f20b514/src/main/resources/simple-security.properties)
+<br/><br/>
+2.1 Loads the users from in memory after authentication is successful<br/>
+    - for authentication the user credentials are loaded from in memory 'storage'<br/>
+<br/>
+3.1 Loads the users from in memory after authentication is successful<br/>
+    - for authentication the user credentials are loaded from SQL database
+
+3.2. Loads the users but uses a path(url) on which authentication is not necessary<br/>
+
+<br/>
+4.1 Creates a user with email and password(stored hashed in sql database)<br/>
+4.2. Loads users if the requestor has 'view' authority<br/>
+
+![Sequence diagram for 4,2](/assets/images/sequence-4.2.png)
+4.3. Demonstrates that authenticated user can not load the users if has no 'view' authority<br/>
 
 ### Testing
 

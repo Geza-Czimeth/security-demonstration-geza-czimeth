@@ -16,7 +16,7 @@ import static com.bigfish.securitydemonstration.model.Constants.TEST_CUSTOMER;
 public class UserControllerWithAuthorityCheck {
 
     @GetMapping("/users")
-    @PreAuthorize("hasAuthority('user')")
+    @PreAuthorize("hasAuthority('view')")
     public ResponseEntity<Customer> load() {
         return ResponseEntity.ok(TEST_CUSTOMER);
     }

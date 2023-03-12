@@ -7,10 +7,10 @@
 	},
 	"item": [
 		{
-			"name": "dev-simple-security",
+			"name": "1. dev-simple-security",
 			"item": [
 				{
-					"name": "Load users",
+					"name": "1.1. Load users",
 					"request": {
 						"auth": {
 							"type": "basic",
@@ -48,10 +48,10 @@
 			]
 		},
 		{
-			"name": "dev",
+			"name": "2. dev",
 			"item": [
 				{
-					"name": "Load users",
+					"name": "2.1. Load users",
 					"request": {
 						"auth": {
 							"type": "basic",
@@ -89,10 +89,10 @@
 			]
 		},
 		{
-			"name": "test",
+			"name": "3. test",
 			"item": [
 				{
-					"name": "Load orders",
+					"name": "3.1 Load users",
 					"request": {
 						"auth": {
 							"type": "basic",
@@ -128,7 +128,7 @@
 					"response": []
 				},
 				{
-					"name": "Load orders, request is not authenticated",
+					"name": "3.2 Load users, request is not authenticated",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -152,10 +152,10 @@
 			]
 		},
 		{
-			"name": "prod",
+			"name": "4. prod",
 			"item": [
 				{
-					"name": "Create user",
+					"name": "4.1 Create user",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -184,7 +184,7 @@
 					"response": []
 				},
 				{
-					"name": "Load users with ADMIN authority",
+					"name": "4.2 Load users with view authority",
 					"request": {
 						"auth": {
 							"type": "basic",
@@ -204,7 +204,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/v1/users",
+							"raw": "http://localhost:8080/api/v2/users",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -212,7 +212,7 @@
 							"port": "8080",
 							"path": [
 								"api",
-								"v1",
+								"v2",
 								"users"
 							]
 						}
@@ -220,7 +220,7 @@
 					"response": []
 				},
 				{
-					"name": "Load users with USER Authority check",
+					"name": "4.3 Load users with USER Authority --> should fail",
 					"request": {
 						"auth": {
 							"type": "basic",
